@@ -4,13 +4,13 @@
 #
 Name     : R-subplex
 Version  : 1.5.4
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/subplex_1.5-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/subplex_1.5-4.tar.gz
 Summary  : Unconstrained Optimization using the Subplex Algorithm
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-subplex-lib
+Requires: R-subplex-lib = %{version}-%{release}
 BuildRequires : buildreq-R
 
 %description
@@ -32,11 +32,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534209246
+export SOURCE_DATE_EPOCH=1552799909
 
 %install
+export SOURCE_DATE_EPOCH=1552799909
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534209246
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library subplex|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  subplex || :
 
 
 %files
@@ -99,7 +98,10 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/subplex/help/subplex.rdx
 /usr/lib64/R/library/subplex/html/00Index.html
 /usr/lib64/R/library/subplex/html/R.css
-/usr/lib64/R/library/subplex/libs/symbols.rds
+/usr/lib64/R/library/subplex/tests/ripple.R
+/usr/lib64/R/library/subplex/tests/ripple.Rout.save
+/usr/lib64/R/library/subplex/tests/rosen.R
+/usr/lib64/R/library/subplex/tests/rosen.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
