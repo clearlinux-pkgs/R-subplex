@@ -7,7 +7,7 @@
 #
 Name     : R-subplex
 Version  : 1.9
-Release  : 42
+Release  : 43
 URL      : https://cran.r-project.org/src/contrib/subplex_1.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/subplex_1.9.tar.gz
 Summary  : Unconstrained Optimization using the Subplex Algorithm
